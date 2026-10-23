@@ -46,10 +46,10 @@ header,
   text-transform: lowercase;
 }
 
-/* Product cards match the homepage: pink border, fixed image box, equal height. */
+/* Product cards match the homepage: autumn border, fixed image box, equal height. */
 .product-card-wrapper .card--card,
 .product-card-wrapper .card--standard .card__inner {
-  border-color: #ffe3ec;
+  border-color: #e3ae80;
   background-color: #fff;
 }
 
@@ -100,11 +100,11 @@ header,
   min-height: 4lh;
 }
 
-/* Outline buttons use the same pink as product cards. */
+/* Outline buttons use the same autumn border as product cards. */
 .button.button--secondary::after,
 .button.button--secondary:not([disabled]):hover::after,
 .customer button.button--secondary::after,
 .customer button.button--secondary:not([disabled]):hover::after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #ffe3ec,
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #e3ae80,
     0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
 }

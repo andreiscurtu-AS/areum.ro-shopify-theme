@@ -36,7 +36,7 @@
             "emoji": "📦",
             "title": "livrare 2–3 zile",
             "text": "<p>prin curier, în toată țara</p>",
-            "background": "#FFF1F5"
+            "background": "#FBEBDA"
           }
         },
         "col_original": {
@@ -45,7 +45,7 @@
             "emoji": "🇰🇷",
             "title": "100% original",
             "text": "<p>direct din Coreea</p>",
-            "background": "#F3E6FF"
+            "background": "#F9DDBE"
           }
         },
         "col_cod": {
@@ -54,7 +54,7 @@
             "emoji": "💳",
             "title": "plata la livrare",
             "text": "<p>sau card, cum vrei tu</p>",
-            "background": "#E6F7EF"
+            "background": "#F6E3B8"
           }
         },
         "col_gift": {
@@ -63,7 +63,7 @@
             "emoji": "🎁",
             "title": "cadou la fiecare colet",
             "text": "<p>sticker + sample surpriză</p>",
-            "background": "#FFF7DE"
+            "background": "#EFD4B4"
           }
         }
       },
@@ -87,8 +87,8 @@
             "emoji": "🧴",
             "title": "skincare",
             "text": "<p>toner · ser · SPF</p>",
-            "background": "#FFD2E0",
-            "text_color": "#a85e75",
+            "background": "#F4A259",
+            "text_color": "#4A2A1C",
             "link": "shopify://collections/skincare"
           }
         },
@@ -98,8 +98,8 @@
             "emoji": "💋",
             "title": "tinte de buze",
             "text": "<p>jelly · velvet · glow</p>",
-            "background": "#FFCBD8",
-            "text_color": "#a85e75",
+            "background": "#EFB98A",
+            "text_color": "#A8471F",
             "link": "shopify://collections/make-up"
           }
         },
@@ -109,8 +109,8 @@
             "emoji": "🍑",
             "title": "blush & obraji",
             "text": "<p>cremă · pudră · stick</p>",
-            "background": "#FFEFAE",
-            "text_color": "#9a7b1e",
+            "background": "#D9A441",
+            "text_color": "#4A2A1C",
             "link": "shopify://collections/make-up"
           }
         },
@@ -120,8 +120,8 @@
             "emoji": "☁️",
             "title": "cushion & bază",
             "text": "<p>glow · mat · tone-up</p>",
-            "background": "#E3D5FF",
-            "text_color": "#7a5bc0",
+            "background": "#F9DDBE",
+            "text_color": "#8C5A2B",
             "link": "shopify://collections/make-up"
           }
         }
