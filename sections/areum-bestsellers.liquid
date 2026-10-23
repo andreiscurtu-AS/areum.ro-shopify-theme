@@ -1,0 +1,351 @@
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .areum-best-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .areum-best-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .areum-best__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .areum-best__title {
+    margin: 0;
+    color: #4a2e45;
+  }
+
+  .areum-best__view-all {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ff5e7a;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .areum-best__view-all:hover {
+    text-decoration: underline;
+  }
+
+  .areum-best__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 990px) {
+    .areum-best__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .areum-best__card {
+    background: #fff;
+    border: 2px solid #ffe3ec;
+    border-radius: 22px;
+    padding: 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .areum-best__media {
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff1f5;
+    aspect-ratio: 1;
+  }
+
+  .areum-best__media img,
+  .areum-best__media .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .areum-best__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff5e7a;
+    color: #fff;
+    font-family: var(--font-heading-family);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+
+  .areum-best__badge--sale {
+    background: #3e9b77;
+  }
+
+  .areum-best__vendor {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #b08aa0;
+    margin: 14px 0 0;
+  }
+
+  .areum-best__name {
+    font-family: var(--font-heading-family);
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #4a2e45;
+    margin: 3px 0 0;
+    text-decoration: none;
+  }
+
+  .areum-best__name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .areum-best__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  .areum-best__price {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #ff5e7a;
+  }
+
+  .areum-best__price .price,
+  .areum-best__price .price-item,
+  .areum-best__price .price__container {
+    display: inline;
+    margin: 0;
+    color: #ff5e7a;
+  }
+
+  .areum-best__add {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff1f5;
+    color: #ff5e7a;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    flex: none;
+  }
+
+  .areum-best__add:hover {
+    background: #ffd2e0;
+  }
+{%- endstyle -%}
+
+<div class="areum-best-{{ section.id }}">
+  <div class="page-width">
+    <div class="areum-best__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="areum-best__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.view_all_label != blank -%}
+        <a
+          class="areum-best__view-all"
+          {% if section.settings.view_all_link != blank %}
+            href="{{ section.settings.view_all_link }}"
+          {% elsif section.settings.collection != blank %}
+            href="{{ section.settings.collection.url }}"
+          {% else %}
+            href="{{ routes.all_products_collection_url }}"
+          {% endif %}
+        >
+          {{ section.settings.view_all_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <ul class="areum-best__grid">
+      {%- if section.settings.collection != blank and section.settings.collection.products.size > 0 -%}
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {%- liquid
+            assign variant = product.selected_or_first_available_variant
+            assign on_sale = false
+            if variant.compare_at_price > variant.price
+              assign on_sale = true
+              assign savings = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round
+            endif
+          -%}
+          <li>
+            <article class="areum-best__card">
+              <a class="areum-best__media" href="{{ product.url }}">
+                {%- if product.featured_media -%}
+                  {{
+                    product.featured_media
+                    | image_url: width: 600
+                    | image_tag: loading: 'lazy', widths: '280, 360, 540, 720', sizes: '(min-width: 990px) 25vw, 50vw', alt: product.featured_media.alt
+                  }}
+                {%- else -%}
+                  {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+                {%- if on_sale -%}
+                  <span class="areum-best__badge areum-best__badge--sale">-{{ savings }}%</span>
+                {%- elsif forloop.first -%}
+                  <span class="areum-best__badge">Bestseller</span>
+                {%- endif -%}
+              </a>
+              {%- if section.settings.show_vendor and product.vendor != blank -%}
+                <p class="areum-best__vendor">{{ product.vendor | escape }}</p>
+              {%- endif -%}
+              <h3 class="areum-best__name">
+                <a href="{{ product.url }}">{{ product.title | escape }}</a>
+              </h3>
+              <div class="areum-best__row">
+                <div class="areum-best__price">
+                  {% render 'price', product: product, use_variant: true, show_badges: false %}
+                </div>
+                {%- if variant.available -%}
+                  <form method="post" action="{{ routes.cart_add_url }}">
+                    <input type="hidden" name="id" value="{{ variant.id }}">
+                    <button type="submit" name="add" class="areum-best__add" aria-label="{{ 'products.product.add_to_cart' | t }}">+</button>
+                  </form>
+                {%- else -%}
+                  <a class="areum-best__add" href="{{ product.url }}" aria-label="{{ product.title | escape }}">+</a>
+                {%- endif -%}
+              </div>
+            </article>
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <li>
+            <article class="areum-best__card">
+              <div class="areum-best__media">
+                {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <p class="areum-best__vendor">Brand</p>
+              <h3 class="areum-best__name">Exemplu de titlu de produs</h3>
+              <div class="areum-best__row">
+                <div class="areum-best__price">{{ 1999 | money }}</div>
+                <span class="areum-best__add" aria-hidden="true">+</span>
+              </div>
+            </article>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Areum bestsellers",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Cele mai iubite 💕"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h2",
+      "label": "Heading size"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": true,
+      "label": "Show vendor"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "Toate produsele →"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Areum bestsellers"
+    }
+  ]
+}
+{% endschema %}

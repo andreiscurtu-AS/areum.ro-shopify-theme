@@ -1,0 +1,379 @@
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .areum-footer-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .areum-footer-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .areum-footer {
+    background: #fff;
+    border-top: 2px dashed #f3d7e2;
+    margin-top: 24px;
+    color: #8a7286;
+  }
+
+  .areum-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .areum-footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .areum-footer__grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+  }
+
+  .areum-footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    text-decoration: none;
+  }
+
+  .areum-footer__logo {
+    display: block;
+    height: auto;
+    max-width: {{ section.settings.logo_width }}px;
+  }
+
+  .areum-footer__wordmark {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: #4a2e45;
+  }
+
+  .areum-footer__about {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0;
+  }
+
+  .areum-footer__heading {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #4a2e45;
+    margin: 0 0 14px;
+  }
+
+  .areum-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .areum-footer__links a {
+    font-size: 1.4rem;
+    color: #8a7286;
+    text-decoration: none;
+  }
+
+  .areum-footer__links a:hover {
+    color: #ff5e7a;
+  }
+
+  .areum-footer__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-start;
+  }
+
+  .areum-footer__pills .list-payment {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  .areum-footer__anpc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .areum-footer__anpc a {
+    display: block;
+    line-height: 0;
+  }
+
+  .areum-footer__anpc img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  .areum-footer__bottom {
+    border-top: 1px solid #f3d7e2;
+    margin-top: 32px;
+    padding: 18px 0 88px;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #b0a0aa;
+  }
+
+  .areum-footer__bottom a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .areum-footer__bottom a:hover {
+    color: #ff5e7a;
+  }
+
+  .areum-footer__bottom .rte,
+  .areum-footer__bottom p {
+    margin: 0;
+    display: inline;
+  }
+{%- endstyle -%}
+
+<footer class="areum-footer">
+  <div class="page-width areum-footer-{{ section.id }}">
+    <div class="areum-footer__grid">
+      <div>
+        <a class="areum-footer__brand" href="{{ routes.root_url }}">
+          {%- if settings.logo != blank -%}
+            {{
+              settings.logo
+              | image_url: width: 320
+              | image_tag: class: 'areum-footer__logo', loading: 'lazy', alt: shop.name
+            }}
+          {%- else -%}
+            <span class="areum-footer__wordmark">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.about != blank -%}
+          <p class="areum-footer__about">{{ section.settings.about | escape }}</p>
+        {%- endif -%}
+        {%- render 'social-icons' -%}
+      </div>
+
+      <div>
+        {%- if section.settings.shop_heading != blank -%}
+          <h2 class="areum-footer__heading">{{ section.settings.shop_heading | escape }}</h2>
+        {%- endif -%}
+        <ul class="areum-footer__links">
+          {%- if section.settings.shop_menu != blank -%}
+            {%- for link in section.settings.shop_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a href="{{ routes.collections_url }}/skincare">Skincare</a></li>
+            <li><a href="{{ routes.collections_url }}/machiaj">Machiaj</a></li>
+            <li><a href="{{ routes.collections_url }}/branduri">Branduri</a></li>
+            <li><a href="{{ routes.collections_url }}/noutati">Noutăți</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div>
+        {%- if section.settings.help_heading != blank -%}
+          <h2 class="areum-footer__heading">{{ section.settings.help_heading | escape }}</h2>
+        {%- endif -%}
+        <ul class="areum-footer__links">
+          {%- if section.settings.help_menu != blank -%}
+            {%- for link in section.settings.help_menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            {%- if shop.shipping_policy != blank -%}
+              <li><a href="{{ shop.shipping_policy.url }}">Livrare</a></li>
+            {%- endif -%}
+            {%- if shop.refund_policy != blank -%}
+              <li><a href="{{ shop.refund_policy.url }}">Retur</a></li>
+            {%- endif -%}
+            <li><a href="/pages/intrebari-frecvente">Întrebări frecvente</a></li>
+            <li><a href="/pages/contact">Contact</a></li>
+            <li><a href="/account">Urmărește comanda</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div>
+        {%- if section.settings.pay_heading != blank -%}
+          <h2 class="areum-footer__heading">{{ section.settings.pay_heading | escape }}</h2>
+        {%- endif -%}
+        <div class="areum-footer__pills">
+          <ul class="list list-payment" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        <div class="areum-footer__anpc">
+          <a
+            href="https://www.anpc.ro/public/ce-este-sal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ANPC — Soluționarea alternativă a litigiilor"
+          >
+            <img
+              src="{{ 'anpc-sal.png' | asset_url }}"
+              alt="ANPC — Soluționarea alternativă a litigiilor"
+              width="220"
+              height="60"
+              loading="lazy"
+            >
+          </a>
+          <a
+            href="https://consumer-redress.ec.europa.eu/site-relocation_en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Soluționarea online a litigiilor"
+          >
+            <img
+              src="{{ 'anpc-sol.png' | asset_url }}"
+              alt="Soluționarea online a litigiilor"
+              width="220"
+              height="60"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="areum-footer__bottom">
+    <div class="page-width">
+      {%- if section.settings.copyright != blank -%}
+        {%- assign copyright_year = 'now' | date: '%Y' -%}
+        <div class="rte">
+          {{ section.settings.copyright | replace: '[year]', copyright_year }}
+        </div>
+      {%- else -%}
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}
+      {%- endif -%}
+      {%- if section.settings.show_policy -%}
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank and policy.url != shop.shipping_policy.url and policy.url != shop.refund_policy.url -%}
+            · <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Areum footer",
+  "class": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "about",
+      "label": "Brand text",
+      "default": "K-beauty original, livrat cu drag în toată România. Soft skin, soft life. ☁️"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 220,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 140
+    },
+    {
+      "type": "text",
+      "id": "shop_heading",
+      "label": "Shop heading",
+      "default": "Cumpără"
+    },
+    {
+      "type": "link_list",
+      "id": "shop_menu",
+      "label": "Shop menu"
+    },
+    {
+      "type": "text",
+      "id": "help_heading",
+      "label": "Help heading",
+      "default": "Ajutor"
+    },
+    {
+      "type": "link_list",
+      "id": "help_menu",
+      "label": "Help menu"
+    },
+    {
+      "type": "text",
+      "id": "pay_heading",
+      "label": "Payments heading",
+      "default": "Plătești cu"
+    },
+    {
+      "type": "richtext",
+      "id": "copyright",
+      "label": "Rând de jos (copyright)",
+      "info": "Textul de sub footer. Folosește [year] pentru anul curent.",
+      "default": "<p>© [year] areum · K-beauty pentru România · Toate brandurile aparțin proprietarilor lor</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "default": true,
+      "label": "Show policy links"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Areum footer"
+    }
+  ]
+}
+{% endschema %}

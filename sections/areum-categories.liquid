@@ -1,0 +1,256 @@
+{%- style -%}
+  .areum-cats-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .areum-cats-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .areum-cats__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .areum-cats__title {
+    margin: 0;
+    color: #4a2e45;
+  }
+
+  .areum-cats__view-all {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ff5e7a;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .areum-cats__view-all:hover {
+    text-decoration: underline;
+  }
+
+  .areum-cats__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .areum-cats__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .areum-cats__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    padding: 24px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .areum-cats__emoji {
+    font-size: calc(2.1rem * 2.5);
+    line-height: 1;
+  }
+
+  .areum-cats__heading {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    color: #4a2e45;
+    margin: 0;
+  }
+
+  .areum-cats__text {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 4px 0 0;
+  }
+
+  .areum-cats__text p {
+    margin: 0;
+  }
+{%- endstyle -%}
+
+<div class="areum-cats-{{ section.id }}">
+  <div class="page-width">
+    <div class="areum-cats__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="areum-cats__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.view_all_label != blank -%}
+        <a
+          class="areum-cats__view-all"
+          {% if section.settings.view_all_link == blank %}
+            role="link" aria-disabled="true"
+          {% else %}
+            href="{{ section.settings.view_all_link }}"
+          {% endif %}
+        >
+          {{ section.settings.view_all_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="areum-cats__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.link != blank -%}
+          <a
+            class="areum-cats__card"
+            href="{{ block.settings.link }}"
+            style="background: {{ block.settings.background }};"
+            {{ block.shopify_attributes }}
+          >
+        {%- else -%}
+          <div
+            class="areum-cats__card"
+            style="background: {{ block.settings.background }};"
+            {{ block.shopify_attributes }}
+          >
+        {%- endif -%}
+          {%- if block.settings.emoji != blank -%}
+            <span class="areum-cats__emoji" aria-hidden="true">{{ block.settings.emoji }}</span>
+          {%- endif -%}
+          <div>
+            {%- if block.settings.title != blank -%}
+              <p class="areum-cats__heading">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="areum-cats__text rte" style="color: {{ block.settings.text_color }};">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Areum categories",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Pe categorii"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h2",
+      "label": "Heading size"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "Vezi tot →"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "🧴"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Skincare"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>toner · ser · SPF</p>"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#FFD2E0"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#a85e75"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Areum categories"
+    }
+  ]
+}
+{% endschema %}

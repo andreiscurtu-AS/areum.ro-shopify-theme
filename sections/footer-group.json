@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "newsletter": {
+      "type": "areum-newsletter",
+      "settings": {
+        "heading": "10% reducere la prima comandă ✨",
+        "heading_size": "h1",
+        "text": "<p>Abonează-te și prinde primele drop-uri, reduceri și restock-uri.</p>",
+        "placeholder": "adresa ta de email",
+        "button_label": "Mă abonez",
+        "padding_top": 52,
+        "padding_bottom": 20
+      }
+    },
+    "1788944901b784dc27": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "footer": {
+      "type": "areum-footer",
+      "settings": {
+        "about": "K-beauty original, livrat cu drag în toată România. Soft skin, soft life. ☁️",
+        "logo_width": 140,
+        "shop_heading": "Cumpără",
+        "shop_menu": "cumpara",
+        "help_heading": "Ajutor",
+        "help_menu": "ajutor",
+        "pay_heading": "Plătești cu",
+        "copyright": "<p>© [year] areum · K-beauty pentru România · Toate brandurile aparțin proprietarilor lor</p>",
+        "show_policy": true,
+        "padding_top": 48,
+        "padding_bottom": 8
+      }
+    }
+  },
+  "order": [
+    "newsletter",
+    "1788944901b784dc27",
+    "footer"
+  ]
+}
