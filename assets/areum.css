@@ -1,0 +1,110 @@
+/* Titles, links, buttons, headers and tags stay lowercase. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.hxl,
+.hxxl,
+a,
+button,
+.button,
+.button-label,
+.shopify-challenge__button,
+.customer button,
+header,
+.announcement-bar,
+.announcement-bar__message,
+.header__menu-item,
+.menu-drawer__menu-item,
+.badge,
+.areum-hero__badge,
+.areum-hero__sticker,
+.areum-best__badge,
+.areum-best__vendor,
+.product__text,
+.areum-cats__heading,
+.areum-trust__title,
+.areum-footer__heading,
+.caption-with-letter-spacing,
+.uppercase,
+.product__text.caption-with-letter-spacing,
+.cart-items thead th,
+.quick-order-list__table thead th,
+.pickup-availability-variant,
+.facets__summary,
+.facets__summary-label,
+.mobile-facets__summary,
+.mobile-facets__heading {
+  text-transform: lowercase;
+}
+
+/* Product cards match the homepage: pink border, fixed image box, equal height. */
+.product-card-wrapper .card--card,
+.product-card-wrapper .card--standard .card__inner {
+  border-color: #ffe3ec;
+  background-color: #fff;
+}
+
+.product-grid .grid__item {
+  display: flex;
+}
+
+.product-grid product-component,
+.product-grid .product-card-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+}
+
+.product-grid .product-card-wrapper > .card {
+  flex: 1;
+  width: 100%;
+}
+
+.product-card-wrapper .card:not(.card--horizontal) .ratio::before {
+  padding-bottom: 100%;
+}
+
+.product-card-wrapper .card:not(.card--horizontal) .card__media .media {
+  background-color: #fff;
+}
+
+.product-card-wrapper .card:not(.card--horizontal) .card__media .media img {
+  object-fit: contain;
+}
+
+.product-card-wrapper .card:not(.card--horizontal) > .card__content .card__heading {
+  min-height: 5.2em;
+  min-height: 4lh;
+}
+
+.card__heading-text,
+.areum-best__name a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.areum-best__name {
+  min-height: 5.2em;
+  min-height: 4lh;
+}
+
+/* Outline buttons use the same pink as product cards. */
+.button.button--secondary::after,
+.button.button--secondary:not([disabled]):hover::after,
+.customer button.button--secondary::after,
+.customer button.button--secondary:not([disabled]):hover::after {
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #ffe3ec,
+    0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
+}

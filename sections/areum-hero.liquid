@@ -22,6 +22,48 @@
     overflow: hidden;
   }
 
+  @media screen and (max-width: 989px) {
+    .areum-hero__card {
+      gap: 0;
+    }
+
+    .areum-hero__copy {
+      display: contents;
+    }
+
+    .areum-hero__badge {
+      order: 1;
+    }
+
+    .areum-hero__heading {
+      order: 2;
+    }
+
+    .areum-hero__media {
+      order: 3;
+      margin: 2.4rem 0;
+    }
+
+    .areum-hero__text {
+      order: 4;
+      margin-top: 0;
+    }
+
+    .areum-hero__actions {
+      order: 5;
+    }
+
+    .areum-hero__meta {
+      order: 6;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .areum-hero__heading {
+      font-size: calc(var(--font-heading-scale) * 4rem);
+    }
+  }
+
   @media screen and (min-width: 990px) {
     .areum-hero__card {
       grid-template-columns: 1.05fr 0.95fr;
@@ -226,7 +268,7 @@
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "K-beauty-ul tău,\nlivrat cu drag."
+      "default": "k-beauty-ul tău,\nlivrat cu drag."
     },
     {
       "type": "select",
@@ -250,7 +292,7 @@
       "type": "text",
       "id": "button_label_1",
       "label": "Primary button",
-      "default": "Cumpără acum"
+      "default": "cumpără acum"
     },
     {
       "type": "url",
@@ -261,7 +303,7 @@
       "type": "text",
       "id": "button_label_2",
       "label": "Secondary button",
-      "default": "Vezi noutățile"
+      "default": "vezi populare"
     },
     {
       "type": "url",
@@ -272,7 +314,7 @@
       "type": "inline_richtext",
       "id": "meta",
       "label": "Trust line",
-      "default": "★★★★★ 4.9 · 2.300+ comenzi &nbsp; 📦 Livrare 2–3 zile"
+      "default": "★★★★★ 4.9 · 2.300+ comenzi &nbsp; 📦 livrare 2–3 zile"
     },
     {
       "type": "image_picker",

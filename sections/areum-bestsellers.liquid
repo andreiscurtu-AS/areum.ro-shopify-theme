@@ -101,7 +101,6 @@
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     color: #b08aa0;
     margin: 14px 0 0;
   }
@@ -214,7 +213,7 @@
                 {%- if on_sale -%}
                   <span class="areum-best__badge areum-best__badge--sale">-{{ savings }}%</span>
                 {%- elsif forloop.first -%}
-                  <span class="areum-best__badge">Bestseller</span>
+                  <span class="areum-best__badge">bestseller</span>
                 {%- endif -%}
               </a>
               {%- if section.settings.show_vendor and product.vendor != blank -%}
@@ -246,8 +245,8 @@
               <div class="areum-best__media">
                 {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
               </div>
-              <p class="areum-best__vendor">Brand</p>
-              <h3 class="areum-best__name">Exemplu de titlu de produs</h3>
+              <p class="areum-best__vendor">brand</p>
+              <h3 class="areum-best__name">exemplu de titlu de produs</h3>
               <div class="areum-best__row">
                 <div class="areum-best__price">{{ 1999 | money }}</div>
                 <span class="areum-best__add" aria-hidden="true">+</span>
@@ -273,7 +272,7 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Cele mai iubite 💕"
+      "default": "cele mai iubite 💕"
     },
     {
       "type": "select",
@@ -310,7 +309,7 @@
       "type": "text",
       "id": "view_all_label",
       "label": "View all label",
-      "default": "Toate produsele →"
+      "default": "toate produsele →"
     },
     {
       "type": "url",

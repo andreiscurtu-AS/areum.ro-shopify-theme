@@ -18,7 +18,7 @@
         "heading_size": "h1",
         "text": "<p>Abonează-te și prinde primele drop-uri, reduceri și restock-uri.</p>",
         "placeholder": "adresa ta de email",
-        "button_label": "Mă abonez",
+        "button_label": "mă abonez",
         "padding_top": 52,
         "padding_bottom": 20
       }
@@ -32,11 +32,11 @@
       "settings": {
         "about": "K-beauty original, livrat cu drag în toată România. Soft skin, soft life. ☁️",
         "logo_width": 140,
-        "shop_heading": "Cumpără",
+        "shop_heading": "cumpără",
         "shop_menu": "cumpara",
-        "help_heading": "Ajutor",
+        "help_heading": "ajutor",
         "help_menu": "ajutor",
-        "pay_heading": "Plătești cu",
+        "pay_heading": "plătești cu",
         "copyright": "<p>© [year] areum · K-beauty pentru România · Toate brandurile aparțin proprietarilor lor</p>",
         "show_policy": true,
         "padding_top": 48,

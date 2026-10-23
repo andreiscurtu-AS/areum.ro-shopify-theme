@@ -13,14 +13,14 @@
       "type": "areum-hero",
       "settings": {
         "badge": "era soft a început ☁️",
-        "heading": "K-beauty-ul tău,\nlivrat cu drag.",
+        "heading": "k-beauty-ul tău,\nlivrat cu drag.",
         "heading_size": "hxl",
         "text": "<p>Tinte, blush-uri, cushion-uri și skincare coreean — alese pe sprânceană, livrate în toată România în 2–3 zile. Comanzi, despachetezi, strălucești.</p>",
-        "button_label_1": "Cumpără acum",
+        "button_label_1": "cumpără acum",
         "button_link_1": "shopify://collections/all",
-        "button_label_2": "Vezi noutățile",
-        "button_link_2": "shopify://collections/noutati",
-        "meta": "★★★★★ 4.9 · 2.300+ comenzi &nbsp; 📦 Livrare 2–3 zile",
+        "button_label_2": "vezi populare",
+        "button_link_2": "shopify://collections/populare",
+        "meta": "★★★★★ 4.9 · 2.300+ comenzi &nbsp; 📦 livrare 2–3 zile",
         "sticker_1": "nou în stoc! 🎀",
         "sticker_2": "100% original ✓",
         "padding_top": 40,
@@ -34,7 +34,7 @@
           "type": "item",
           "settings": {
             "emoji": "📦",
-            "title": "Livrare 2–3 zile",
+            "title": "livrare 2–3 zile",
             "text": "<p>prin curier, în toată țara</p>",
             "background": "#FFF1F5"
           }
@@ -52,7 +52,7 @@
           "type": "item",
           "settings": {
             "emoji": "💳",
-            "title": "Plata la livrare",
+            "title": "plata la livrare",
             "text": "<p>sau card, cum vrei tu</p>",
             "background": "#E6F7EF"
           }
@@ -61,7 +61,7 @@
           "type": "item",
           "settings": {
             "emoji": "🎁",
-            "title": "Cadou la fiecare colet",
+            "title": "cadou la fiecare colet",
             "text": "<p>sticker + sample surpriză</p>",
             "background": "#FFF7DE"
           }
@@ -85,7 +85,7 @@
           "type": "category",
           "settings": {
             "emoji": "🧴",
-            "title": "Skincare",
+            "title": "skincare",
             "text": "<p>toner · ser · SPF</p>",
             "background": "#FFD2E0",
             "text_color": "#a85e75",
@@ -96,33 +96,33 @@
           "type": "category",
           "settings": {
             "emoji": "💋",
-            "title": "Tinte de buze",
+            "title": "tinte de buze",
             "text": "<p>jelly · velvet · glow</p>",
             "background": "#FFCBD8",
             "text_color": "#a85e75",
-            "link": "shopify://collections/machiaj"
+            "link": "shopify://collections/make-up"
           }
         },
         "cat_blush": {
           "type": "category",
           "settings": {
             "emoji": "🍑",
-            "title": "Blush & obraji",
+            "title": "blush & obraji",
             "text": "<p>cremă · pudră · stick</p>",
             "background": "#FFEFAE",
             "text_color": "#9a7b1e",
-            "link": "shopify://collections/machiaj"
+            "link": "shopify://collections/make-up"
           }
         },
         "cat_cushion": {
           "type": "category",
           "settings": {
             "emoji": "☁️",
-            "title": "Cushion & bază",
+            "title": "cushion & bază",
             "text": "<p>glow · mat · tone-up</p>",
             "background": "#E3D5FF",
             "text_color": "#7a5bc0",
-            "link": "shopify://collections/machiaj"
+            "link": "shopify://collections/make-up"
           }
         }
       },
@@ -133,9 +133,9 @@
         "cat_cushion"
       ],
       "settings": {
-        "title": "Pe categorii",
+        "title": "pe categorii",
         "heading_size": "h2",
-        "view_all_label": "Vezi tot →",
+        "view_all_label": "vezi tot →",
         "view_all_link": "shopify://collections/all",
         "padding_top": 44,
         "padding_bottom": 8
@@ -144,12 +144,12 @@
     "bestsellers": {
       "type": "areum-bestsellers",
       "settings": {
-        "title": "Cele mai iubite 💕",
+        "title": "cele mai iubite 💕",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 4,
         "show_vendor": true,
-        "view_all_label": "Toate produsele →",
+        "view_all_label": "toate produsele →",
         "view_all_link": "shopify://collections/all",
         "padding_top": 48,
         "padding_bottom": 8
@@ -169,7 +169,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Curăm Seul, ca tu să nu fii nevoită.",
+            "heading": "curăm seul, ca tu să nu fii nevoită.",
             "heading_size": "h1"
           }
         },
@@ -183,7 +183,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Despre noi",
+            "button_label": "despre noi",
             "button_link": "shopify://pages/about",
             "button_style_secondary": false
           }

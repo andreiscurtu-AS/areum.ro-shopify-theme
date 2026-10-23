@@ -185,10 +185,10 @@
               <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
             {%- endfor -%}
           {%- else -%}
-            <li><a href="{{ routes.collections_url }}/skincare">Skincare</a></li>
-            <li><a href="{{ routes.collections_url }}/machiaj">Machiaj</a></li>
-            <li><a href="{{ routes.collections_url }}/branduri">Branduri</a></li>
-            <li><a href="{{ routes.collections_url }}/noutati">Noutăți</a></li>
+            <li><a href="{{ routes.collections_url }}/skincare">skincare</a></li>
+            <li><a href="{{ routes.collections_url }}/make-up">make-up</a></li>
+            <li><a href="{{ routes.collections_url }}/branduri">branduri</a></li>
+            <li><a href="{{ routes.collections_url }}/populare">populare</a></li>
           {%- endif -%}
         </ul>
       </div>
@@ -204,14 +204,14 @@
             {%- endfor -%}
           {%- else -%}
             {%- if shop.shipping_policy != blank -%}
-              <li><a href="{{ shop.shipping_policy.url }}">Livrare</a></li>
+              <li><a href="{{ shop.shipping_policy.url }}">livrare</a></li>
             {%- endif -%}
             {%- if shop.refund_policy != blank -%}
-              <li><a href="{{ shop.refund_policy.url }}">Retur</a></li>
+              <li><a href="{{ shop.refund_policy.url }}">retur</a></li>
             {%- endif -%}
-            <li><a href="/pages/intrebari-frecvente">Întrebări frecvente</a></li>
-            <li><a href="/pages/contact">Contact</a></li>
-            <li><a href="/account">Urmărește comanda</a></li>
+            <li><a href="/pages/intrebari-frecvente">întrebări frecvente</a></li>
+            <li><a href="/pages/contact">contact</a></li>
+            <li><a href="/account">urmărește comanda</a></li>
           {%- endif -%}
         </ul>
       </div>
@@ -308,7 +308,7 @@
       "type": "text",
       "id": "shop_heading",
       "label": "Shop heading",
-      "default": "Cumpără"
+      "default": "cumpără"
     },
     {
       "type": "link_list",
@@ -319,7 +319,7 @@
       "type": "text",
       "id": "help_heading",
       "label": "Help heading",
-      "default": "Ajutor"
+      "default": "ajutor"
     },
     {
       "type": "link_list",
@@ -330,7 +330,7 @@
       "type": "text",
       "id": "pay_heading",
       "label": "Payments heading",
-      "default": "Plătești cu"
+      "default": "plătești cu"
     },
     {
       "type": "richtext",

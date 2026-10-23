@@ -411,7 +411,7 @@
                           selected="selected"
                         {% endif %}
                       >
-                        {{ option.name | escape }}
+                        {{ option.name | downcase | escape }}
                       </option>
                     {%- endfor -%}
                   </select>
@@ -744,7 +744,7 @@
                                 selected="selected"
                               {% endif %}
                             >
-                              {{ option.name | escape }}
+                              {{ option.name | downcase | escape }}
                             </option>
                           {%- endfor -%}
                         </select>
@@ -851,7 +851,7 @@
                       selected="selected"
                     {% endif %}
                   >
-                    {{ option.name | escape }}
+                    {{ option.name | downcase | escape }}
                   </option>
                 {%- endfor -%}
               </select>

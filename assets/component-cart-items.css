@@ -477,7 +477,7 @@ cart-remove-button .icon-remove {
 }
 
 .cart-items thead th {
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 @media screen and (max-width: 749px) {
