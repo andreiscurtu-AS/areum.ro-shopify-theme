@@ -62,8 +62,13 @@
         <div class="image-with-text__text-item grid__item">
           <div
             id="ImageWithText--{{ section.id }}"
-            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
+            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% if section.settings.show_leaves %} areum-leaves{% endif %}{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
+            {%- if section.settings.show_leaves -%}
+              {% render 'areum-leaf', size: 60, color: '#F4A259', top: '10px', right: '12px', rotate: 22, drift: 12, dx: 3, dy: -4 %}
+              {% render 'areum-leaf', size: 38, color: '#D9A441', bottom: '14px', left: '12px', rotate: -36, drift: -14, dx: -2, dy: 3 %}
+              {% render 'areum-leaf', size: 28, color: '#EFB98A', top: '46%', left: '-4px', rotate: -72, drift: 10, dx: 2, dy: -3 %}
+            {%- endif -%}
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
@@ -295,6 +300,12 @@
       "id": "color_scheme",
       "label": "t:sections.multirow.settings.container_color_scheme.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_leaves",
+      "label": "Autumn leaves",
+      "default": false
     },
     {
       "type": "header",

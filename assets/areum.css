@@ -100,6 +100,76 @@ header,
   min-height: 4lh;
 }
 
+/* Autumn leaves sit in the corners and tilt when their card is hovered. */
+.areum-hero__card,
+.areum-trust__card,
+.areum-cats__card,
+.areum-news__card,
+.areum-footer,
+.image-with-text__content.areum-leaves {
+  position: relative;
+}
+
+.areum-trust__card,
+.areum-cats__card,
+.areum-news__card,
+.areum-footer,
+.image-with-text__content.areum-leaves {
+  overflow: hidden;
+}
+
+.areum-leaf {
+  position: absolute;
+  z-index: 0;
+  width: var(--leaf-size, 36px);
+  height: var(--leaf-size, 36px);
+  pointer-events: none;
+  transform: rotate(var(--leaf-rot, 0deg));
+}
+
+.areum-hero__copy,
+.areum-hero__media,
+.areum-trust__emoji,
+.areum-trust__copy,
+.areum-cats__emoji,
+.areum-cats__card > div,
+.areum-news__heading,
+.areum-news__text,
+.areum-news__form,
+.areum-footer__grid,
+.areum-footer__bottom,
+.image-with-text__content.areum-leaves > :not(.areum-leaf) {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 989px) {
+  .areum-leaf--desktop {
+    display: none;
+  }
+
+  .areum-hero__card .areum-leaf {
+    width: calc(var(--leaf-size, 36px) * 0.72);
+    height: calc(var(--leaf-size, 36px) * 0.72);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .areum-leaf {
+    transition: transform 0.55s ease;
+  }
+
+  .areum-hero__card:hover .areum-leaf,
+  .areum-trust__card:hover .areum-leaf,
+  .areum-cats__card:hover .areum-leaf,
+  .areum-news__card:hover .areum-leaf,
+  .areum-footer:hover .areum-leaf,
+  .image-with-text__content.areum-leaves:hover .areum-leaf {
+    transform: rotate(calc(var(--leaf-rot, 0deg) + var(--leaf-drift, 8deg)))
+      translate(var(--leaf-dx, 2px), var(--leaf-dy, -3px));
+  }
+}
+
 /* Outline buttons use the same autumn border as product cards. */
 .button.button--secondary::after,
 .button.button--secondary:not([disabled]):hover::after,

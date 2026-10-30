@@ -308,6 +308,7 @@ a.product__text {
 .product--no-media .product__title,
 .product--no-media .product__text,
 .product--no-media .product__tax,
+.product--no-media .product__ingredients,
 .product--no-media .product__sku,
 .product--no-media shopify-payment-terms {
   text-align: center;
@@ -320,6 +321,40 @@ a.product__text {
 
 .product__tax {
   margin-top: -1.4rem;
+}
+
+.product__info-container .product__description + .product__ingredients {
+  margin-top: -1.2rem;
+}
+
+.product__ingredients-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+}
+
+.product__ingredients-summary .icon-caret {
+  position: static;
+  width: 1rem;
+  height: 0.6rem;
+}
+
+.product__ingredients[open] > .product__ingredients-summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.product__ingredients-summary:focus-visible {
+  outline: var(--focused-base-outline);
+  outline-offset: var(--focused-base-outline-offset);
+}
+
+.product__ingredients-content {
+  padding-top: 0.6rem;
+}
+
+.product--no-media .product__ingredients-summary {
+  margin-inline: auto;
 }
 
 .product--no-media .share-button {

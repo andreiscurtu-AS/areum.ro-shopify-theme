@@ -77,6 +77,21 @@
           style="background: {{ block.settings.background }};"
           {{ block.shopify_attributes }}
         >
+          {%- liquid
+            assign leaf_colors = '#C4622A,#B8401F,#A8471F,#8C5A2B' | split: ','
+            assign leaf_rotations = '16,-22,34,-14' | split: ','
+            assign leaf_drifts = '12,-14,10,-16' | split: ','
+          -%}
+          {% render 'areum-leaf',
+            size: 34,
+            color: leaf_colors[forloop.index0],
+            top: '6px',
+            right: '6px',
+            rotate: leaf_rotations[forloop.index0],
+            drift: leaf_drifts[forloop.index0],
+            dx: 2,
+            dy: -3
+          %}
           {%- if block.settings.emoji != blank -%}
             <span class="areum-trust__emoji" aria-hidden="true">{{ block.settings.emoji }}</span>
           {%- endif -%}

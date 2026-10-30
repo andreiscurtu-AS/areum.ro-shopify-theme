@@ -118,6 +118,7 @@
     "product": {
       "add_to_cart": "Adaugă în coș",
       "description": "Descriere",
+      "ingredients": "Ingrediente",
       "on_sale": "Vânzare",
       "product_variants": "Variante de produse",
       "share": "Distribuie acest produs",

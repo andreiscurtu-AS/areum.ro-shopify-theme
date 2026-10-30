@@ -178,6 +178,11 @@
 <div class="color-scheme-1 gradient areum-hero-{{ section.id }}">
   <div class="page-width">
     <div class="areum-hero__card">
+      {% render 'areum-leaf', size: 58, color: '#B8401F', top: '12px', left: '16px', rotate: -30, drift: 14, dx: 4, dy: -6 %}
+      {% render 'areum-leaf', size: 42, color: '#D9A441', top: '18px', right: '24px', rotate: 24, drift: -12, dx: -3, dy: 4 %}
+      {% render 'areum-leaf', size: 68, color: '#A8471F', bottom: '14px', right: '28px', rotate: 40, drift: 10, dx: 3, dy: -5 %}
+      {% render 'areum-leaf', size: 36, color: '#D9772F', bottom: '22px', left: '20px', rotate: -58, drift: -16, dx: -2, dy: 4 %}
+      {% render 'areum-leaf', size: 30, color: '#8C5A2B', top: '10px', left: '46%', rotate: 68, drift: 8, dx: 0, dy: -4, extra_class: 'areum-leaf--desktop' %}
       <div class="areum-hero__copy">
         {%- if section.settings.badge != blank -%}
           <div class="areum-hero__badge">{{ section.settings.badge | escape }}</div>

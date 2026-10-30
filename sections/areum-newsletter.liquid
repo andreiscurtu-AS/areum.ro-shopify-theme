@@ -92,6 +92,10 @@
 <div class="areum-news-{{ section.id }}">
   <div class="page-width">
     <div class="areum-news__card">
+      {% render 'areum-leaf', size: 74, color: '#B8401F', top: '-10px', left: '-8px', rotate: -26, drift: 12, dx: 4, dy: -4 %}
+      {% render 'areum-leaf', size: 46, color: '#D9A441', top: '14px', right: '18px', rotate: 32, drift: -12, dx: -3, dy: 3 %}
+      {% render 'areum-leaf', size: 58, color: '#A8471F', bottom: '-12px', right: '72px', rotate: 16, drift: 10, dx: 2, dy: -5 %}
+      {% render 'areum-leaf', size: 34, color: '#8C5A2B', bottom: '16px', left: '24px', rotate: -46, drift: -14, dx: -2, dy: 3 %}
       {%- if section.settings.heading != blank -%}
         <h2 class="areum-news__heading {{ section.settings.heading_size }}">
           {{ section.settings.heading | escape }}

@@ -1,0 +1,5 @@
+# Theme editor content. Pushing these overwrites copy edited in Shopify admin.
+config/settings_data.json
+templates/*.json
+sections/*.json
+locales/ro.json

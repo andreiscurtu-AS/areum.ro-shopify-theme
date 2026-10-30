@@ -206,6 +206,7 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-3",
+        "show_leaves": true,
         "padding_top": 52,
         "padding_bottom": 8
       }
